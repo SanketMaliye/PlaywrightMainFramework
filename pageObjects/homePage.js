@@ -11,8 +11,13 @@ class HomePage {
         await this.profileButton.click();
         await this.logoutButton.click();        
     }
+
+    async verifyTitleAfterLoginSuccessfully() {
+        await expect(this.page).toHaveURL("https://accounts.lambdatest.com/dashboard");       
+    }
+
     async verifyTitleAfterLogoutSuccessfully(){
-        await expect(this.page).toHaveTitle("Log in");
+        await expect(this.page).toHaveURL("https://accounts.lambdatest.com/login");
     } 
 }
 

@@ -21,10 +21,6 @@ class LoginPage {
         await this.page.click(this.loginButton)
     }
 
-    async verifyTitleAfterLoginSuccessfully() {
-        await expect(this.page).toHaveTitle("Welcome - LambdaTest");
-    }
-
     async loginUsingJSONData() {
         await this.page.fill(this.emailTextField, jsonData.email)
         await this.page.fill(this.passwordTextField, jsonData.password)

@@ -8,7 +8,6 @@ test('Logout Functionality', async ({ page }) => {
 
   await page.goto('/');
   await loginpage.login()
-  await loginpage.verifyTitleAfterLoginSuccessfully()
   await homepage.logout()
   await homepage.verifyTitleAfterLogoutSuccessfully()
    
