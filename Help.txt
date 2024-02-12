@@ -1,2 +1,3 @@
 npx playwright test --project=chromium
 npx playwright show-report
+npx playwright test --ui

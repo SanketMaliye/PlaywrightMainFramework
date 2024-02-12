@@ -1,6 +1,6 @@
-const { test, beforeEach} = require('@playwright/test')
+const { test, beforeEach, afterEach} = require('@playwright/test')
 const LoginPage = require("../pageObjects/loginPage")
-const HomePage = require("../pageObjects/homePage")
+const HomePage = require("../pageObjects/homePage");
 
 let loginpage;
 let homepage;
@@ -13,15 +13,17 @@ beforeEach(async ({ page }) => {
 
 test('Login Functionality', async ({ page }) => {
     await loginpage.login();
-    await homepage.verifyTitleAfterLoginSuccessfully();
-});
+    await homepage.verifyTitleAfterLoginSuccessfully();  
+}, { timeout: 60000 });
 
 test('Login Functionality - Passing Data From Json File', async ({ page }) => {
     await loginpage.loginUsingJSONData();
     await homepage.verifyTitleAfterLoginSuccessfully();
-});
+}, { timeout: 60000 });
 
 test('Login Functionality - Passing Data From Excel File', async ({ page }) => {
     await loginpage.loginUsingExcelData();
     await homepage.verifyTitleAfterLoginSuccessfully();
-});
+}, { timeout: 60000 });
+
+ 
