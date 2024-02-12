@@ -1,30 +1,27 @@
-const { test } = require('@playwright/test')
+const { test, beforeEach} = require('@playwright/test')
 const LoginPage = require("../pageObjects/loginPage")
 const HomePage = require("../pageObjects/homePage")
 
-test('Login Functionality', async({page})=>{
-    const loginpage = new LoginPage(page)
-    const homepage = new HomePage(page)
+let loginpage;
+let homepage;
 
+beforeEach(async ({ page }) => {
+    loginpage = new LoginPage(page);
+    homepage = new HomePage(page);
     await page.goto('/');
-    await loginpage.login()
-    await homepage.verifyTitleAfterLoginSuccessfully()
-})
+});
 
-test('Login Functionality - Passing Data From Json File', async({page})=>{
-    const loginpage = new LoginPage(page)
-    const homepage = new HomePage(page)
+test('Login Functionality', async ({ page }) => {
+    await loginpage.login();
+    await homepage.verifyTitleAfterLoginSuccessfully();
+});
 
-    await page.goto('/');
-    await loginpage.loginUsingJSONData()
-    await homepage.verifyTitleAfterLoginSuccessfully()
-})
+test('Login Functionality - Passing Data From Json File', async ({ page }) => {
+    await loginpage.loginUsingJSONData();
+    await homepage.verifyTitleAfterLoginSuccessfully();
+});
 
-test('Login Functionality - Passing Data From Excel File', async({page})=>{
-    const loginpage = new LoginPage(page)
-    const homepage = new HomePage(page)
-
-    await page.goto('/');
-    await loginpage.loginUsingExcelData()
-    await homepage.verifyTitleAfterLoginSuccessfully()
-})
+test('Login Functionality - Passing Data From Excel File', async ({ page }) => {
+    await loginpage.loginUsingExcelData();
+    await homepage.verifyTitleAfterLoginSuccessfully();
+});
