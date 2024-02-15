@@ -1,3 +1,13 @@
 npx playwright test --project=chromium
+npx playwright test testname.spec.js --project=chromium --headed
 npx playwright show-report
 npx playwright test --ui
+
+----Codegen Help----
+npx playwright codegen
+npx playwright codegen -o test/filename.spec.js
+
+npx playwright codegen --device "devicename"
+npx playwright codegen --device "iPhone 14 Pro Max"
+
+npx playwright test mobilefilename.spec.js --project=iphone --headed
