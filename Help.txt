@@ -11,3 +11,7 @@ npx playwright codegen --device "devicename"
 npx playwright codegen --device "iPhone 14 Pro Max"
 
 npx playwright test mobilefilename.spec.js --project=iphone --headed
+
+---- You can disable any parallelism by allowing just a single worker at any time. 
+Either set workers: 1 option in the configuration file or pass --workers=1 to the command line. ----
+npx playwright test --workers=1
